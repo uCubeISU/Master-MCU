@@ -1,5 +1,6 @@
 /**
  * @addtogroup Main
+ * @brief     The main source code and control loop of the project.
  * @{
  * @file      main.c
  * @author    Iowa State University uCube team
