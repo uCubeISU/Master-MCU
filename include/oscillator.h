@@ -33,7 +33,12 @@
 #ifndef OSCILLATOR_H_
 #define OSCILLATOR_H_
 
+/**
+ * @def       F_OSC
+ * @brief     The main system oscillator frequency in Hz.
+ */
 #define F_OSC 50000000
+
 
 void osc_init(void); // Initialization for main oscillator.
 
