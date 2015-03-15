@@ -1,9 +1,9 @@
 /**
  * @addtogroup <group name>
  * @{
- * @file      main.c
+ * @file      oscillator.c
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
  * @date      Mar 15, 2015
  * @brief     <brief description>
  * @copyright Copyright (C) 2015 ISU uCube team
@@ -30,10 +30,13 @@
 
 #include "oscillator.h"
 
-int main(void)
+void testfunc(void)
 {
-
+	int i = 0;
+	i++;
+	return;
 }
+
 
 /// @}
 

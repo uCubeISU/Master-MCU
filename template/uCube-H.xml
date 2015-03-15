@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="org.eclipse.cdt.core.cHeader.contenttype_context" deleted="false" description="Format for header files" enabled="true" name="uCube-h">/**
+ * @addtogroup &lt;group name&gt;
+ * @{
+ * @file      ${file_name}
+ * @author    Iowa State University uCube team
+ * @author    ${user}
+ * @date      ${date}
+ * @brief     &lt;brief description&gt;
+ * @copyright Copyright (C) ${year} ISU uCube team
+ * @details   &lt;detailed description&gt;
+ */
+
+/*
+    ${project_name}
+    Copyright (C) ${year}  Iowa State University uCube team
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+#ifndef ${include_guard_symbol}
+#define ${include_guard_symbol}
+
+${includes}
+
+${declarations}
+
+
+#endif /* ${include_guard_symbol} */
+
+/// @}
+
+</template></templates>

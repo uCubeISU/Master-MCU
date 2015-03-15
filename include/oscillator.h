@@ -1,7 +1,7 @@
 /**
  * @addtogroup <group name>
  * @{
- * @file      main.c
+ * @file      oscillator.h
  * @author    Iowa State University uCube team
  * @author    Sprog
  * @date      Mar 15, 2015
@@ -28,12 +28,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "oscillator.h"
+#ifndef OSCILLATOR_H_
+#define OSCILLATOR_H_
 
-int main(void)
-{
 
-}
+void testfunc(void);
+
+#endif /* OSCILLATOR_H_ */
 
 /// @}
 
