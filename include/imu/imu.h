@@ -1,5 +1,8 @@
 /**
  * @addtogroup IMU Inertial Measurement Unit
+ * @brief     Determines gesture recogniztion
+ * @details   Has functions for determining compass directions, shaking
+ *            and other movement of the device.
  * @{
  * @file      imu.h
  * @author    Iowa State University uCube team
