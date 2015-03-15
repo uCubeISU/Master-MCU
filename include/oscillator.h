@@ -1,13 +1,15 @@
 /**
- * @addtogroup <group name>
+ * @addtogroup System
  * @{
  * @file      oscillator.h
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Header file for oscillator family.
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Contains prototype for all oscillator components.
  */
 
 /*
@@ -31,8 +33,9 @@
 #ifndef OSCILLATOR_H_
 #define OSCILLATOR_H_
 
+#define F_OSC 50000000
 
-void testfunc(void);
+void osc_init(void); // Initialization for main oscillator.
 
 #endif /* OSCILLATOR_H_ */
 

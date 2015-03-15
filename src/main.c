@@ -1,13 +1,15 @@
 /**
- * @addtogroup <group name>
+ * @addtogroup Main
  * @{
  * @file      main.c
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Main software control loop
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Main entry point of the program, contains main control loop.
  */
 
 /*
@@ -29,11 +31,34 @@
 */
 
 #include "oscillator.h"
+#include "driverlib/systick.h"
 
+void main_loop(void);
+
+/**
+ * @brief     Main entry point of the program.
+ * @details   Initialize MCU, set up system tick and busy wait.
+ */
 int main(void)
 {
+	osc_init();                     //  Initialization for main oscillator
+	SysTick.set(F_OSC/1000);        // Set system tick to 1 kHz
+	SysTickIntRegister(main_loop);  // Register callback function for system tick
+	SysTickIntEnable();             // Enable interrupt
+	SysTickEnable();                // Enable system tick
 
 }
+/**
+ * @brief     Main control loop.
+ * @details   This function gets called once every millisecond and contains the
+ *            main software control loop.
+ * @todo      Impliment this
+ */
+void main_loop(void)
+{
+#warning main loop not implimented
 
+
+}
 /// @}
 

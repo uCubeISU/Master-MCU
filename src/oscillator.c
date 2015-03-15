@@ -1,13 +1,15 @@
 /**
- * @addtogroup <group name>
+ * @addtogroup System
  * @{
  * @file      oscillator.c
  * @author    Iowa State University uCube team
  * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Initialization function for main oscillator.
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Contains the initialization function for the main oscillator.
  */
 
 /*
@@ -29,14 +31,22 @@
 */
 
 #include "oscillator.h"
-
-void testfunc(void)
+#include <stdbool.h>
+#include <stdint.h>
+#include "driverlib/sysctl.h"
+/**
+ * @brief     Initialization for main oscillator.
+ * @details   Sets clock source to be the main oscillator. Sets system clock
+ *            frequency to 50 MHz.
+ * @todo      Edit this to set clock sources for peripherals and USB.
+ */
+void osc_init(void)
 {
-	int i = 0;
-	i++;
-	return;
+	SysCtlClockSet(SYSCTL_SYSDIV_5 |   // Divides System Clock by 5.
+			       SYSCTL_USE_PLL |    // Selects to use PLL.
+			       SYSCTL_XTAL_16MHZ | // Sets external crystal oscillator to 16MHz.
+			       SYSCTL_OSC_MAIN);   // Use external crystal oscillator.
 }
-
 
 /// @}
 
