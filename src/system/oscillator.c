@@ -30,7 +30,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "oscillator.h"
+#include "system/oscillator.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "driverlib/sysctl.h"

@@ -31,7 +31,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "oscillator.h"
+
+#include "system/system.h"
+#include <stdint.h>
 #include "driverlib/systick.h"
 
 void main_loop(void);
@@ -43,7 +45,7 @@ void main_loop(void);
 int main(void)
 {
 	osc_init();                     //  Initialization for main oscillator
-	SysTick.set(F_OSC/1000);        // Set system tick to 1 kHz
+	SysTickPeriodSet(F_OSC/1000);        // Set system tick to 1 kHz
 	SysTickIntRegister(main_loop);  // Register callback function for system tick
 	SysTickIntEnable();             // Enable interrupt
 	SysTickEnable();                // Enable system tick
