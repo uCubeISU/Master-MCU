@@ -7,9 +7,9 @@
  * @author    Jeramie Vens
  * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Initialization of the IMU
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Initialization of the accelerometer and gyroscope
  */
 
 /*
