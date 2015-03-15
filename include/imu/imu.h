@@ -3,11 +3,14 @@
  * @{
  * @file      imu.h
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Accelerometer and gyroscope libraries.
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Accelerometer and gyroscope libraries containing the function
+ *            prototype of the initialization function for the IMU.
  */
 
 /*

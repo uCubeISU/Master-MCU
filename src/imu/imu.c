@@ -3,7 +3,9 @@
  * @{
  * @file      imu.c
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
  * @brief     <brief description>
  * @copyright Copyright (C) 2015 ISU uCube team
