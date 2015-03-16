@@ -30,8 +30,39 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "imu.h"
+#include <stdint.h>
 
+/**
+ * @brief     Initialization for IMU.
+ * @details   Initializes the accelerometer, gyroscope, and magnetic sensor.
+ *            More details on a specific initialization of one of those
+ *            three sensors can be found in the function associated with
+ *            initializing that in particular sensor.
+ */
+void imu_init(void)
+{
 
+}
+/**
+ * @brief     Initialization for Gyroscope.
+ * @details   Initializes the Gyroscope for:
+ *
+ * @todo      Determine what settings we need for gyroscope initialization and do I2C communication.
+ */
+void gyro_init(uint8_t CTRL_REG1_G, uint8_t CTRL_REG2_G, uint8_t CTRL_REG3_G, uint8_t CTRL_REG4_G)
+{
 
+}
+/**
+ * @brief     Initialization for Accelerometer.
+ * @details   Initializes the Accelerometer for:
+ *
+ * @todo      Determine what settings we need for accelerometer initialization and do I2C communication.
+ */
+void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL)
+{
+
+}
 /// @}
 
