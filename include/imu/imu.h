@@ -42,13 +42,6 @@
 #define IMU_H_
 
 #include "reg-map.h"
-#include <stdint.h>
-#include <stdbool.h>
-#include "I2C.h"
-#include "driverlib/i2c.h"
-#include "driverlib/sysctl.h"
-#include "inc/hw_i2c.h"
-#include "inc/hw_memmap.h"
 
 void imu_init(void);
 void gyro_init(uint8_t CTRL_REG1_G, uint8_t CTRL_REG2_G, uint8_t CTRL_REG3_G, uint8_t CTRL_REG4_G);
