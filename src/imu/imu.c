@@ -46,6 +46,23 @@
  */
 void imu_init(void)
 {
+    //enable GPIO peripheral that contains I2C0
+    SysCtlPeripheralEnable();
+
+	//Pins that matter: DEN_A/G = PH4
+	//DRDY_M = PG5
+	//INT_M  = PH7
+    //INT1_A/G = PH6
+    //INT2_A/G = PH5
+
+    //Configure the pin muxing for I2C0 functions. (These ports will change!)
+    GPIOPinConfigure();
+    GPIOPinConfigure();
+
+    //Select the I2C function for these pins. (These ports and pins will change!)
+    GPIOPinTypeI2CSCL();
+    GPIOPinTypeI2C();
+
 	gyro_init();
 	accel_init();
 }
