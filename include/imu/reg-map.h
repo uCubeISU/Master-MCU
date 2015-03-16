@@ -33,7 +33,7 @@
 #ifndef REG_MAP_H_
 #define REG_MAP_H_
 
-///Accelerometer and gyroscope register address defines
+///@name Accelerometer and Gyroscope Register Address Defines
 ///@{
 #define IMU_DEV_ADDR_GYRO_ACCEL 0x6A
 #define IMU_REG_ADDR_ACT_THS 0x04
@@ -87,7 +87,8 @@
 #define IMU_REG_ADDR_INT_GEN_THS_ZL_G 0x36
 #define IMU_REG_ADDR_INT_GEN_DUR_G 0x37
 ///@}
-///Magnetic sensor register address defines
+
+///@name Magnetic Sensor Register Address Defines
 ///@{
 #define IMU_DEV_ADDR_MAG 0x1C
 #define IMU_REG_ADDR_OFFSET_X_REG_L_M 0x05

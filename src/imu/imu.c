@@ -34,6 +34,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "i2c/I2C.h"
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "driverlib/pin_map.h"
 
 
 /**
@@ -45,22 +50,24 @@
  */
 void imu_init(void)
 {
-    //enable GPIO peripheral that contains I2C0
-    SysCtlPeripheralEnable();
 
-	//Pins that matter: DEN_A/G = PH4
-	//DRDY_M = PG5
-	//INT_M  = PH7
-    //INT1_A/G = PH6
-    //INT2_A/G = PH5
+    //enable I2C module 0
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
-    //Configure the pin muxing for I2C0 functions. (These ports will change!)
-    GPIOPinConfigure();
-    GPIOPinConfigure();
+    //reset module
+    SysCtlPeripheralReset(SYSCTL_PERIPH_I2C0);
 
-    //Select the I2C function for these pins. (These ports and pins will change!)
-    GPIOPinTypeI2CSCL();
-    GPIOPinTypeI2C();
+    //enable GPIO peripherals
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOG); //enable port G
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOH); //enable port H
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB); //enable port B
+
+    //configure pin muxing.
+    GPIOPinTypeGPIOOutput(GPIO_PORTH_BASE, GPIO_PIN_4); //set PH4 as output
+    GPIOPinTypeGPIOInput(GPIO_PORTH_BASE, GPIO_PIN_7 | GPIO_PIN_6 | GPIO_PIN_5); //set PH7, PH6, and PH5 as input
+    GPIOPinTypeGPIOInput(GPIO_PORTG_BASE, GPIO_PIN_5); //set PG5 as input
+    GPIOPinConfigure(GPIO_PB2_I2C0SCL); //set PB2 to be I2C0SCL
+    GPIOPinConfigure(GPIO_PB3_I2C0SDA); //set PB3 to be I2C0SDA
 
 	gyro_init();
 	accel_init();

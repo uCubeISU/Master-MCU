@@ -42,6 +42,7 @@
 #define IMU_H_
 
 #include "reg-map.h"
+#include <stdint.h>
 
 void imu_init(void);
 void gyro_init(uint8_t CTRL_REG1_G, uint8_t CTRL_REG2_G, uint8_t CTRL_REG3_G, uint8_t CTRL_REG4_G);
@@ -213,7 +214,6 @@ void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL
 #define IMU_SLEEP_DIS_G 0x00 ///<Gyroscope sleep mode disabled
 #define IMU_SLEEP_EN_G 0x40  ///<Gyroscope sleep mode enabled
 ///@}
-
 #endif /* IMU_H_ */
 
 /// @}
