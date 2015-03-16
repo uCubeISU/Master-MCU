@@ -31,11 +31,6 @@
 */
 
 #include "imu/imu.h"
-#include <stdint.h>
-#include <stdbool.h>
-#include "I2C.h"
-
-
 
 /**
  * @brief     Initialization for IMU.
