@@ -1,13 +1,16 @@
 /**
- * @addtogroup <group name>
+ * @addtogroup I2C
  * @{
  * @file      I2C.c
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 16, 2015
- * @brief     <brief description>
+ * @brief     I2C functions
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   This file contains all the I2C functions such as initialization,
+ *            sending, and recieving data from the I2C bus.
  */
 
 /*
@@ -34,15 +37,12 @@
 #include "inc/hw_i2c.h"
 #include "inc/hw_memmap.h"
 
-#define IMU_BASE_ADDR I2C0_BASE //change for correct I2C for IMU
+#define IMU_BASE_ADDR I2C0_BASE
 /**
- * @brief     Initialization for I2Cx.
- * @details   Initializes the I2Cx bus by enabling the I2C module x. Resets
+ * @brief     Initialization for I2C0.
+ * @details   Initializes the I2C0 bus by enabling the I2C module 0. Resets
  *            the module, enables the master module, uses the system clock,
  *            and sets the data transfer rate.
- *
- * @todo      Determine what I2C module we are using. Determine what ports and
- *            pins we are accessing from the IMU
  */
 void I2C_init(void)
 {
