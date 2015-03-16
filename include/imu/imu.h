@@ -1,8 +1,10 @@
 /**
  * @addtogroup IMU Inertial Measurement Unit
  * @brief     Determines gesture recogniztion
- * @details   Has functions for determining compass directions, shaking
- *            and other movement of the device.
+ * @details   Prototypes functions for determining compass directions, shaking
+ *            and other movement of the device. Contains prototypes for
+ *            the initialization functions of the IMU as well as Macros for
+ *            control registers 1-7 and 9.
  * @{
  * @file      imu.h
  * @author    Iowa State University uCube team
@@ -13,7 +15,7 @@
  * @brief     Accelerometer and gyroscope libraries.
  * @copyright Copyright (C) 2015 ISU uCube team
  * @details   Accelerometer and gyroscope libraries containing the function
- *            prototype of the initialization function for the IMU. Also
+ *            prototype of the initialization functions for the IMU. Also
  *            contains defines for IMU gyroscope, accelerometer, and magnetic
  *            sensor initialization.
  */
@@ -43,8 +45,6 @@
 #include <stdint.h>
 
 void imu_init(void);
-void I2C_init(void);
-void I2C_send(uint8_t slave_addr, uint8_t data, uint8_t register_addr);
 void gyro_init(uint8_t CTRL_REG1_G, uint8_t CTRL_REG2_G, uint8_t CTRL_REG3_G, uint8_t CTRL_REG4_G);
 void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL);
 
@@ -69,7 +69,7 @@ void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL
 
 ///@name Gyroscope Bandwidth Selection (Lookup Table- Page 46 of datasheet)
 ///@{
-#warning values for bandwidth selection are incorrect
+#warning values for bandwidth selection are dependant on the lookup table
 
 #define IMU_BW_14HZ_G 0x01  ///<14Hz bandwidth
 #define IMU_BW_16HZ_G 0x02  ///<16Hz bandwidth
@@ -206,6 +206,13 @@ void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL
 #define IMU_DCF_ODR_100 0x20 ///<bandwidth of high pass filter is ODR value divided by 100
 #define IMU_DCF_ODR_9 0x40   ///<bandwidth of high pass filter is ODR value divided by 9
 #define IMU_DCF_ODR_400 0x60 ///<bandwidth of high pass filter is ODR value divided by 400
+///@}
+
+//CTRL_REG9_G
+///@name Gyroscope Sleep Enable
+///@{
+#define IMU_SLEEP_DIS_G 0x00 ///<Gyroscope sleep mode disabled
+#define IMU_SLEEP_EN_G 0x40  ///<Gyroscope sleep mode enabled
 ///@}
 
 #endif /* IMU_H_ */
