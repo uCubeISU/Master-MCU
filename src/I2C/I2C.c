@@ -37,12 +37,9 @@
 #define IMU_BASE_ADDR I2C0_BASE //change for correct I2C for IMU
 /**
  * @brief     Initialization for I2Cx.
- * @details   Initializes the I2Cx bus by enabling the I2C module x. Resetting
- *            the module followed by enabling the GPIO peripheral that contains
- *            the correct module. Then configures the pin muxing for the
- *            modules required ports and selects the I2C function for those
- *            pins. Lastly enables the master module, uses the system clock,
- *            sets the data transfer rate, and then clears the FIFOs.
+ * @details   Initializes the I2Cx bus by enabling the I2C module x. Resets
+ *            the module, enables the master module, uses the system clock,
+ *            and sets the data transfer rate.
  *
  * @todo      Determine what I2C module we are using. Determine what ports and
  *            pins we are accessing from the IMU
