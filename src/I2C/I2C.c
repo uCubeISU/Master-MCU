@@ -55,23 +55,6 @@ void I2C_init(void)
     //reset module
     SysCtlPeripheralReset(SYSCTL_PERIPH_I2C0);
 
-    //enable GPIO peripheral that contains I2C0
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
-
-	//Pins that matter: DEN_A/G = PH4
-	//DRDY_M = PG5
-	//INT_M  = PH7
-    //INT1_A/G = PH6
-    //INT2_A/G = PH5
-
-    //Configure the pin muxing for I2C0 functions on port B2 and B3. (These ports will change!)
-    GPIOPinConfigure(GPIO_PB2_I2C0SCL);
-    GPIOPinConfigure(GPIO_PB3_I2C0SDA);
-
-    //Select the I2C function for these pins. (These ports and pins will change!)
-    GPIOPinTypeI2CSCL(GPIO_PORTB_BASE, GPIO_PIN_2);
-    GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_3);
-
     //Enable and initialize the I2C0 master module.  Use the system clock for
     //the I2C0 module.  The last parameter sets the I2C data transfer rate.
     //If false the data rate is set to 100kbps and if true the data rate will
