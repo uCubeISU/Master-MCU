@@ -34,7 +34,7 @@
 #include "inc/hw_i2c.h"
 #include "inc/hw_memmap.h"
 
-#define IMU_BASE_ADDR I2C1_BASE //change for correct I2C for IMU
+#define IMU_BASE_ADDR I2C0_BASE //change for correct I2C for IMU
 /**
  * @brief     Initialization for I2Cx.
  * @details   Initializes the I2Cx bus by enabling the I2C module x. Resetting
@@ -49,14 +49,20 @@
  */
 void I2C_init(void)
 {
-    //enable I2C module x
+    //enable I2C module 0
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
     //reset module
     SysCtlPeripheralReset(SYSCTL_PERIPH_I2C0);
 
-    //enable GPIO peripheral that contains I2C x
+    //enable GPIO peripheral that contains I2C0
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
+
+	//Pins that matter: DEN_A/G = PH4
+	//DRDY_M = PG5
+	//INT_M  = PH7
+    //INT1_A/G = PH6
+    //INT2_A/G = PH5
 
     //Configure the pin muxing for I2C0 functions on port B2 and B3. (These ports will change!)
     GPIOPinConfigure(GPIO_PB2_I2C0SCL);
