@@ -1,13 +1,15 @@
 /**
- * @addtogroup <group name>
+ * @addtogroup Display
  * @{
  * @file      udma.c
  * @author    Iowa State University uCube team
  * @author    Kristopher
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
  * @date      Mar 17, 2015
- * @brief     <brief description>
+ * @brief     micro direct memory access
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   contains initialization functions for udma
  */
 
 /*
@@ -32,4 +34,6 @@
 
 
 /// @}
+
+
 
