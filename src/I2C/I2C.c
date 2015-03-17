@@ -33,6 +33,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "i2c/I2C.h"
 #include "driverlib/i2c.h"
 #include "driverlib/sysctl.h"
 #include "inc/hw_i2c.h"
@@ -48,7 +49,11 @@
  */
 i2c_t* I2C_init(uint32_t base_addr)
 {
+
 	i2c_t* this = malloc(sizeof(i2c_t));
+
+	this->base_addr = base_addr;
+
     //enable I2C module 0
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
@@ -59,9 +64,10 @@ i2c_t* I2C_init(uint32_t base_addr)
     //the I2C0 module.  The last parameter sets the I2C data transfer rate.
     //If false the data rate is set to 100kbps and if true the data rate will
     //be set to 400kbps.
-    I2CMasterInitExpClk(BASE_ADDR, SysCtlClockGet(), true);
 
-    this->base_addr = base_addr;
+    I2CMasterInitExpClk(this->base_addr, SysCtlClockGet(), true);
+
+
     return this;
 }
 
@@ -86,19 +92,19 @@ void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_ad
     I2CMasterDataPut(this->base_addr, register_addr);
 
 	//Initiate send of data from the MCU
-	I2CMasterControl(BASE_ADDR, I2C_MASTER_CMD_BURST_SEND_START);
+	I2CMasterControl(this->base_addr, I2C_MASTER_CMD_BURST_SEND_START);
 
     //Wait until MCU is done transferring.
-    while(I2CMasterBusy(IMU_BASE_ADDR));
+    while(I2CMasterBusy(this->base_addr));
 
     //put next piece of data into I2C FIFO
-    I2CMasterDataPut(IMU_BASE_ADDR, data);
+    I2CMasterDataPut(this->base_addr, data);
 
     //send next data that was just placed into FIFO
-    I2CMasterControl(IMU_BASE_ADDR, I2C_MASTER_CMD_BURST_SEND_FINISH);
+    I2CMasterControl(this->base_addr, I2C_MASTER_CMD_BURST_SEND_FINISH);
 
     // Wait until MCU is done transferring.
-    while(I2CMasterBusy(IMU_BASE_ADDR));
+    while(I2CMasterBusy(this->base_addr));
 
 }
 /**
@@ -111,33 +117,33 @@ void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_ad
  * @param	  reg
  * 				   8 bit integer representing the address fo the register to read from.
  */
-uint8_t I2C_receive(uint8_t slave_addr, uint8_t reg)
+uint8_t I2C_receive(i2c_t* this, uint8_t slave_addr, uint8_t reg)
 {
     //specify that we are writing (a register address) to the
     //slave device
-    I2CMasterSlaveAddrSet(IMU_BASE_ADDR, slave_addr, false);
+    I2CMasterSlaveAddrSet(this->base_addr, slave_addr, false);
 
     //specify register to be read
-    I2CMasterDataPut(IMU_BASE_ADDR, reg);
+    I2CMasterDataPut(this->base_addr, reg);
 
     //send control byte and register address byte to slave device
-    I2CMasterControl(IMU_BASE_ADDR, I2C_MASTER_CMD_BURST_SEND_START);
+    I2CMasterControl(this->base_addr, I2C_MASTER_CMD_BURST_SEND_START);
 
     //wait for MCU to finish transaction
-    while(I2CMasterBusy(IMU_BASE_ADDR));
+    while(I2CMasterBusy(this->base_addr));
 
     //specify that we are going to read from slave device
-    I2CMasterSlaveAddrSet(IMU_BASE_ADDR, slave_addr, true);
+    I2CMasterSlaveAddrSet(this->base_addr, slave_addr, true);
 
     //send control byte and read from the register we
     //specified
-    I2CMasterControl(IMU_BASE_ADDR, I2C_MASTER_CMD_SINGLE_RECEIVE);
+    I2CMasterControl(this->base_addr, I2C_MASTER_CMD_SINGLE_RECEIVE);
 
     //wait for MCU to finish transaction
-    while(I2CMasterBusy(IMU_BASE_ADDR));
+    while(I2CMasterBusy(this->base_addr));
 
     //return data pulled from the specified register
-    return I2CMasterDataGet(IMU_BASE_ADDR);
+    return I2CMasterDataGet(this->base_addr);
 }
 
 /// @}
