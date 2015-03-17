@@ -29,8 +29,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <stdint.h>
+#include <stdbool.h>
+#include "inc/tm4c123gh6pz.h"
+#include "driverlib/udma.h"
 
+/*
+ * channel number and information is found in driverlib/udma.h
+ */
 
+void udma_init(uint8_t I2C_CHAN_NUM)
+{
+
+	uDMAChannelAssign(I2C_CHAN_NUM);
+	uDMAChannelAttributeEnable(I2C_CHAN_NUM, UDMA_ATTR_USEBURST);
+	uDMAChannelControlSet(I2C_CHAN_NUM | UDMA_PRI_SELECT, UDMA_SIZE_8 |
+			                                                  UDMA_SRC_INC_8 |
+			                                                  UDMA_DST_INC_NONE);
+	uDMAChannelEnable(I2C_CHAN_NUM);
+}
 
 
 /// @}
