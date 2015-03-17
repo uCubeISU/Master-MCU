@@ -32,6 +32,7 @@
 */
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "driverlib/i2c.h"
 #include "driverlib/sysctl.h"
 #include "inc/hw_i2c.h"
@@ -45,8 +46,9 @@
  * @param     BASE_ADDR
  *                 32 bit integer representing the base address of the I2C bus
  */
-void I2C_init(uint32_t BASE_ADDR)
+i2c_t* I2C_init(uint32_t base_addr)
 {
+	i2c_t* this = malloc(sizeof(i2c_t));
     //enable I2C module 0
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
@@ -57,7 +59,10 @@ void I2C_init(uint32_t BASE_ADDR)
     //the I2C0 module.  The last parameter sets the I2C data transfer rate.
     //If false the data rate is set to 100kbps and if true the data rate will
     //be set to 400kbps.
-    I2CMasterInitExpClk(IMU_BASE_ADDR, SysCtlClockGet(), true);
+    I2CMasterInitExpClk(BASE_ADDR, SysCtlClockGet(), true);
+
+    this->base_addr = base_addr;
+    return this;
 }
 
 /**
@@ -67,16 +72,16 @@ void I2C_init(uint32_t BASE_ADDR)
  * @param     slave_addr
  *
  */
-void I2C_send(uint8_t slave_addr, uint8_t data, uint8_t register_addr)
+void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_addr)
 {
 	//Tell the master module what address it will place on the bus when communicating with slave.
-	I2CMasterSlaveAddrSet(IMU_BASE_ADDR, slave_addr, false);
+	I2CMasterSlaveAddrSet(this->base_addr, slave_addr, false);
 
     //put next piece of data into I2C FIFO
-    I2CMasterDataPut(IMU_BASE_ADDR, register_addr);
+    I2CMasterDataPut(this->base_addr, register_addr);
 
 	//Initiate send of data from the MCU
-	I2CMasterControl(IMU_BASE_ADDR, I2C_MASTER_CMD_BURST_SEND_START);
+	I2CMasterControl(BASE_ADDR, I2C_MASTER_CMD_BURST_SEND_START);
 
     //Wait until MCU is done transferring.
     while(I2CMasterBusy(IMU_BASE_ADDR));

@@ -34,9 +34,14 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-void I2C_init(void);
-void I2C_send(uint8_t slave_addr, uint8_t data, uint8_t register_addr);
-uint8_t I2C_receive(uint8_t slave_addr, uint8_t reg);
+typedef struct I2C_STRUCT
+{
+ uint32_t base_addr;
+}i2c_t;
+
+i2c_t* I2C_init(void);
+void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_addr);
+uint8_t I2C_receive(i2c_t* this, uint8_t slave_addr, uint8_t reg);
 
 
 
