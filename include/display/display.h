@@ -35,13 +35,6 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-//Register DC4
-///@name UDMA Enable
-///@{
-#define DISPLAY_UDMA_DIS 0         ///<Disables UDMA
-#define DISPLAY_UDMA_EN 0x00002000 ///<Enables UDMA
-///@}
-
 
 #endif /* DISPLAY_H_ */
 
