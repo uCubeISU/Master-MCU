@@ -33,10 +33,17 @@
 
 #ifndef I2C_H_
 #define I2C_H_
-
+/**
+ * @class     i2c_t
+ * @brief     A struct holding the base address of the i2c channel
+ * @details   This struct is a 32 bit value representing the base address of the
+ * 	          i2c channel. This struct is acting as an object to be used later.
+ *
+ */
 typedef struct I2C_STRUCT
 {
- uint32_t base_addr;
+	/// The base address of the i2c channel.
+	uint32_t base_addr;
 }i2c_t;
 
 i2c_t* I2C_init(uint32_t base_addr);
