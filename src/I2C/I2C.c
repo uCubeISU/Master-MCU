@@ -70,6 +70,11 @@ i2c_t* I2C_init(uint32_t base_addr)
  * @details   Sends data over the specified I2C bus line through function calls
  *            and given data and register addresses.
  * @param     slave_addr
+ *                 8 bit integer representing the slave address to communicate with
+ * @param     data
+ *                 8 bit value to be passed over i2c
+ * @param     register_Addr
+ * 				   8 bit integer representing the register address to store data in.
  *
  */
 void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_addr)
@@ -101,6 +106,10 @@ void I2C_send(i2c_t* this, uint8_t slave_addr, uint8_t data, uint8_t register_ad
  * @details   Allows the Master to recieve data from the slave by retrieving
  *            data from a specified address of the slave and transmitting that
  *            data back to the Master.
+ * @param     slave_addr
+ *                 8 bit integer representing the slave address to communicate with
+ * @param	  reg
+ * 				   8 bit integer representing the address fo the register to read from.
  */
 uint8_t I2C_receive(uint8_t slave_addr, uint8_t reg)
 {
