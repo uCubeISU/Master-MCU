@@ -1,13 +1,17 @@
 /**
- * @addtogroup Display Touch Panel Displays
+ * @addtogroup Display
  * @{
  * @file      display.h
  * @author    Iowa State University uCube team
- * @author    Sprog
+ * @author    Andy Snawerdt
+ * @author    Jeramie Vens
+ * @author    Kris Burney
  * @date      Mar 15, 2015
- * @brief     <brief description>
+ * @brief     Header file for the Display module
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   <detailed description>
+ * @details   Contains prototypes for display functions including
+ *            initialization functions. Also contains macros for
+ *            display related functions.
  */
 
 /*
@@ -31,7 +35,12 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-
+//Register DC4
+///@name UDMA Enable
+///@{
+#define DISPLAY_UDMA_DIS 0         ///<Disables UDMA
+#define DISPLAY_UDMA_EN 0x00002000 ///<Enables UDMA
+///@}
 
 
 #endif /* DISPLAY_H_ */
