@@ -45,7 +45,7 @@ void main_loop(void);
 int main(void)
 {
 	osc_init();                     //  Initialization for main oscillator
-	SysTickPeriodSet(F_OSC/1000);        // Set system tick to 1 kHz
+	SysTickPeriodSet(F_OSC/1000);   // Set system tick to 1 kHz
 	SysTickIntRegister(main_loop);  // Register callback function for system tick
 	SysTickIntEnable();             // Enable interrupt
 	SysTickEnable();                // Enable system tick
