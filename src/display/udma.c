@@ -33,11 +33,13 @@
 #include <stdbool.h>
 #include "inc/tm4c123gh6pz.h"
 #include "driverlib/udma.h"
-
-/*
- * channel number and information is found in driverlib/udma.h
+/**
+ * @brief     Initialization for uDMA.
+ * @details   initializes and enables a specified uDMA channel to use burst mode and send
+ *            data one byte at a time while also incrementing a created buffer
+ *            by one byte.
+ * @todo      Select channel number. Information is found in driverlib/udma.h
  */
-
 void udma_init(uint8_t I2C_CHAN_NUM)
 {
 
