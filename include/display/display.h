@@ -35,43 +35,6 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-//Register DC4
-///@name UDMA Enable
-///@{
-#define DISPLAY_UDMA_DIS 0         ///<Disables UDMA
-#define DISPLAY_UDMA_EN 0x00002000 ///<Enables UDMA
-///@}
-
-//Regitster SRCR2
-///@name UDMA Reset Control
-///@{
-#define DISPLAY_UDMA_RESET 0x00002000 	///<Resets all internal data and registers
-#define DISPLAY_UDMA_DERESET 0			///<Removes the reset bit
-///@}
-
-//Register RCGC2
-///@name UDMA Clock Gating Control
-///@{
-#define DISPLAY_UDMA_GATE_CONTROL 0x00002000	///<Require clock and functions
-#define DISPLAY_UDMA_GATE_CONTROL 0				///<UDMA is unclocked and disabled
-///@}
-
-//Register SCGC2
-///@name UDMA Clock Gating Control
-///@{
-#define DISPLAY_UDMA_GATE_CONTROL 0x00002000	///<Require clock and functions
-#define DISPLAY_UDMA_GATE_CONTROL 0				///<UDMA is unclocked and disabled
-///@}
-
-//Register DCGC2
-///@name UDMA Clock Gating Control
-///@{
-#define DISPLAY_UDMA_GATE_CONTROL 0x00002000	///<Require clock and functions
-#define DISPLAY_UDMA_GATE_CONTROL 0				///<UDMA is unclocked and disabled
-///@}
-
-
-
 
 #endif /* DISPLAY_H_ */
 
