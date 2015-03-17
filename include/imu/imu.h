@@ -71,19 +71,11 @@ void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL
 ///@{
 #warning values for bandwidth selection are dependant on the lookup table
 
-#define IMU_BW_14HZ_G 0x01  ///<14Hz bandwidth
-#define IMU_BW_16HZ_G 0x02  ///<16Hz bandwidth
-#define IMU_BW_21HZ_G 0x03  ///<21Hz bandwidth
-#define IMU_BW_28HZ_G 0x04  ///<28Hz bandwidth
-#define IMU_BW_29HZ_G 0x05  ///<29Hz bandwidth
-#define IMU_BW_31HZ_G 0x06  ///<31Hz bandwidth
-#define IMU_BW_33HZ_G 0x07  ///<33Hz bandwidth
-#define IMU_BW_40HZ_G 0x08  ///<40Hz bandwidth
-#define IMU_BW_57HZ_G 0x09  ///<57Hz bandwidth
-#define IMU_BW_58HZ_G 0x0A  ///<58Hz bandwidth
-#define IMU_BW_63HZ_G 0x0B  ///<63Hz bandwidth
-#define IMU_BW_78HZ_G 0x0C  ///<78Hz bandwidth
-#define IMU_BW_100HZ_G 0x0D ///<100Hz bandwidth
+#define IMU_BW_14HZ_G 0x00  ///<bits = 00
+#define IMU_BW_16HZ_G 0x01  ///<bits = 01
+#define IMU_BW_21HZ_G 0x02  ///<bits = 10
+#define IMU_BW_28HZ_G 0x03  ///<bits = 11
+
 ///@}
 
 //Register: CTRL_REG2_G

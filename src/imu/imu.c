@@ -69,8 +69,29 @@ void imu_init(void)
     GPIOPinConfigure(GPIO_PB2_I2C0SCL); //set PB2 to be I2C0SCL
     GPIOPinConfigure(GPIO_PB3_I2C0SDA); //set PB3 to be I2C0SDA
 
-	gyro_init();
-	accel_init();
+
+
+	gyro_init(IMU_ODR_952HZ_G |
+			  IMU_FS_245DPS_G |
+			  IMU_BW_21HZ_G,
+			  IMU_INT_SEL_BP1_FILTER_G |
+			  IMU_OUT_SEL_BP1_FILTER_G,
+			  IMU_LP_MODE_EN_G |
+			  IMU_HP_FILTER_EN_G |
+			  IMU_HPCF_H3_G,
+			  IMU_Z_AXIS_EN_G |
+			  IMU_X_AXIS_EN_G |
+			  IMU_Y_AXIS_EN_G);
+
+	accel_init(IMU_DEC_NODEC_XL |
+			   IMU_Z_AXIS_EN_XL |
+			   IMU_X_AXIS_EN_XL |
+			   IMU_Y_AXIS_EN_XL,
+			   IMU_ODR_952HZ_XL |
+			   IMU_FS_8G_XL |
+			   IMU_BW_SCAL_ODR_XL,
+			   IMU_HR_EN_XL |
+			   IMU_DCF_ODR_50);
 }
 /**
  * @brief     Initialization for Gyroscope.
@@ -80,7 +101,6 @@ void imu_init(void)
  */
 void gyro_init(uint8_t CTRL_REG1_DATA_G, uint8_t CTRL_REG2_DATA_G, uint8_t CTRL_REG3_DATA_G, uint8_t CTRL_REG4_DATA_G)
 {
-	I2C_init();
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG1_DATA_G, IMU_REG_ADDR_CTRL_REG1_G);
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG2_DATA_G, IMU_REG_ADDR_CTRL_REG2_G);
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG3_DATA_G, IMU_REG_ADDR_CTRL_REG3_G);
@@ -94,7 +114,6 @@ void gyro_init(uint8_t CTRL_REG1_DATA_G, uint8_t CTRL_REG2_DATA_G, uint8_t CTRL_
  */
 void accel_init(uint8_t CTRL_REG5_DATA_XL, uint8_t CTRL_REG6_DATA_XL, uint8_t CTRL_REG7_DATA_XL)
 {
-	I2C_init();
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG5_DATA_XL, IMU_REG_ADDR_CTRL_REG5_XL);
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG6_DATA_XL, IMU_REG_ADDR_CTRL_REG6_XL);
 	I2C_send(IMU_DEV_ADDR_GYRO_ACCEL, CTRL_REG7_DATA_XL, IMU_REG_ADDR_CTRL_REG7_XL);
