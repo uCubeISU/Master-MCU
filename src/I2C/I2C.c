@@ -37,14 +37,15 @@
 #include "inc/hw_i2c.h"
 #include "inc/hw_memmap.h"
 
-#define IMU_BASE_ADDR I2C0_BASE
 /**
  * @brief     Initialization for I2C0.
  * @details   Initializes the I2C0 bus by enabling the I2C module 0. Resets
  *            the module, enables the master module, uses the system clock,
  *            and sets the data transfer rate.
+ * @param     BASE_ADDR
+ *                 32 bit integer representing the base address of the I2C bus
  */
-void I2C_init(void)
+void I2C_init(uint32_t BASE_ADDR)
 {
     //enable I2C module 0
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
@@ -63,6 +64,8 @@ void I2C_init(void)
  * @brief     I2C send function
  * @details   Sends data over the specified I2C bus line through function calls
  *            and given data and register addresses.
+ * @param     slave_addr
+ *
  */
 void I2C_send(uint8_t slave_addr, uint8_t data, uint8_t register_addr)
 {
