@@ -45,7 +45,7 @@
  * @details   Initializes the I2C0 bus by enabling the I2C module 0. Resets
  *            the module, enables the master module, uses the system clock,
  *            and sets the data transfer rate.
- * @param     BASE_ADDR
+ * @param     base_addr
  *                 32 bit integer representing the base address of the I2C bus
  * @return    this instantiated object
  */
