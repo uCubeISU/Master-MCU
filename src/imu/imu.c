@@ -97,7 +97,14 @@ void imu_init(void)
  * @brief     Initialization for Gyroscope.
  * @details   Initializes the Gyroscope for:
  *
- * @todo      Determine what settings we need for gyroscope initialization.
+ * @param     CTRL_REG1_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG2_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG3_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG4_DATA_G
+ *                 8 bit value containing the data to be stored in the register
  */
 void gyro_init(uint8_t CTRL_REG1_DATA_G, uint8_t CTRL_REG2_DATA_G, uint8_t CTRL_REG3_DATA_G, uint8_t CTRL_REG4_DATA_G)
 {
@@ -110,7 +117,12 @@ void gyro_init(uint8_t CTRL_REG1_DATA_G, uint8_t CTRL_REG2_DATA_G, uint8_t CTRL_
  * @brief     Initialization for Accelerometer.
  * @details   Initializes the Accelerometer for:
  *
- * @todo      Determine what settings we need for accelerometer initialization.
+ * @param     CTRL_REG5_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG6_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG7_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
  */
 void accel_init(uint8_t CTRL_REG5_DATA_XL, uint8_t CTRL_REG6_DATA_XL, uint8_t CTRL_REG7_DATA_XL)
 {
