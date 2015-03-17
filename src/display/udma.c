@@ -1,17 +1,13 @@
 /**
- * @addtogroup Display
+ * @addtogroup <group name>
  * @{
- * @file      display.h
+ * @file      udma.c
  * @author    Iowa State University uCube team
- * @author    Andy Snawerdt
- * @author    Jeramie Vens
- * @author    Kris Burney
- * @date      Mar 15, 2015
- * @brief     Header file for the Display module
+ * @author    Kristopher
+ * @date      Mar 17, 2015
+ * @brief     <brief description>
  * @copyright Copyright (C) 2015 ISU uCube team
- * @details   Contains prototypes for display functions including
- *            initialization functions. Also contains macros for
- *            display related functions.
+ * @details   <detailed description>
  */
 
 /*
@@ -32,18 +28,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DISPLAY_H_
-#define DISPLAY_H_
-
-//Register DC4
-///@name UDMA Enable
-///@{
-#define DISPLAY_UDMA_DIS 0         ///<Disables UDMA
-#define DISPLAY_UDMA_EN 0x00002000 ///<Enables UDMA
-///@}
 
 
-#endif /* DISPLAY_H_ */
 
 /// @}
 
