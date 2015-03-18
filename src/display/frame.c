@@ -49,5 +49,22 @@ struct frame
 	struct panel_frame frame[6];
 };
 
+
+void setAllSubFrames(/*type large enough to hold value*/ cubeValue)
+{
+	for(int i = 0; i < 6;i++)
+	{
+		setFrame(i,cubeValue)
+	}
+}
+
+void setFrame(int frameNum, uint16_t frameValue){
+	 frame.panel_frame.pixel.RED = null;
+	 frame.panel_frame.pixel.BLUE = null;
+	 frame.panel_frame.pixel.GREEN = null;
+
+}
+
+
 /// @}
 

@@ -32,6 +32,9 @@
 
 
 
+void setAllSubFrames(/*type large enough to hold value*/ cubeValue);
+void setFrame(int frameNum, uint16_t frameValue);
+
 
 
 #endif /* INCLUDE_DISPLAY_FRAME_H_ */
