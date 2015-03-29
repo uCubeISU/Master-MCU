@@ -35,6 +35,7 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
+void udma_init(uint8_t I2C_CHAN_NUM);
 
 #endif /* DISPLAY_H_ */
 
