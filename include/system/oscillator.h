@@ -39,7 +39,9 @@
  */
 #define F_OSC 50000000
 
-
+/**
+ *
+ */
 void osc_init(void); // Initialization for main oscillator.
 
 #endif /* OSCILLATOR_H_ */
