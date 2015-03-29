@@ -11,6 +11,7 @@
  * @copyright Copyright (C) 2015 ISU uCube team
  * @details   This file contains all the prototypes for I2C functions
  *            such as intialization, sending data, and recieving data
+ *            Tiva MCU.
  */
 
 /*
