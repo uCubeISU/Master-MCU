@@ -44,8 +44,41 @@
 #include "reg-map.h"
 #include <stdint.h>
 
+/**
+ * @brief     Initialization for IMU.
+ * @details   Initializes the accelerometer, gyroscope, and magnetic sensor.
+ *            More details on a specific initialization of one of those
+ *            three sensors can be found in the function associated with
+ *            initializing that inparticular sensor.
+ */
 void imu_init(void);
+
+/**
+ * @brief     Initialization for Gyroscope.
+ * @details   Initializes the Gyroscope for:
+ *
+ * @param     CTRL_REG1_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG2_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG3_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG4_DATA_G
+ *                 8 bit value containing the data to be stored in the register
+ */
 void gyro_init(uint8_t CTRL_REG1_G, uint8_t CTRL_REG2_G, uint8_t CTRL_REG3_G, uint8_t CTRL_REG4_G);
+
+/**
+ * @brief     Initialization for Accelerometer.
+ * @details   Initializes the Accelerometer for:
+ *
+ * @param     CTRL_REG5_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG6_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
+ * @param     CTRL_REG7_DATA_XL
+ *                 8 bit value containing the data to be stored in the register
+ */
 void accel_init(uint8_t CTRL_REG5_XL, uint8_t CTRL_REG6_XL, uint8_t CTRL_REG7_XL);
 
 // Register: CTRL_REG1_G
